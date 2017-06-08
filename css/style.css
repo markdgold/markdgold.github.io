@@ -246,13 +246,26 @@ footer span {
 
 
 /*work*/
-
-
-/*.height-wrapper {
-    height: 686px;
-    overflow-y: auto
+.project i {
+    font-size: 1.4em;
+    padding: 0 5px
 }
-*/
+.project i.fa-github-square{
+    font-size: 1.7em;
+}
+
+.work-wrapper{
+    margin: 0 15%
+}
+.project a {
+    color: #333;
+    font-size: 1.4em;
+}
+
+.project a:hover {
+    color: #333;
+}
+
 
 @media (max-width: 680px) {
     /*about*/
