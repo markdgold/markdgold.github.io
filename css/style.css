@@ -256,7 +256,8 @@ footer span {
 }
 
 .work-wrapper{
-    margin: 0 15%
+    margin: 0 15%;
+    margin-bottom: 25px;
 }
 .project a {
     color: #333;
@@ -286,8 +287,9 @@ footer span {
         margin-left: 0;
     }
     /*contact*/
-    .contact-wrapper {
+    .contact-wrapper, .work-wrapper {
         margin-left: 0 !important;
+        margin-right: 0 !important;
     }
     .contact-wrapper h2{
         margin-left: 12px !important;
