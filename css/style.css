@@ -144,6 +144,7 @@ footer span {
 .contact-wrapper {
     height: 686px;
     margin-left: 15% !important;
+    margin-right: 15% !important;
     padding-left: 15px !important;
 }
 
@@ -259,7 +260,6 @@ footer span {
 }
 .project a {
     color: #333;
-    font-size: 1.4em;
 }
 
 .project a:hover {
@@ -288,6 +288,9 @@ footer span {
     /*contact*/
     .contact-wrapper {
         margin-left: 0 !important;
+    }
+    .contact-wrapper h2{
+        margin-left: 12px !important;
     }
     .contact-info {
         margin-top: 6px;

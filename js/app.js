@@ -20,7 +20,7 @@ app.config([
         .state('work', {
             url: '/work',
             templateUrl: 'views/work.html',
-            controller: 'SlideCtrl'
+            controller: 'WorkCtrl'
         })
         .state('contact', {
             url: '/contact',

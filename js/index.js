@@ -14,7 +14,7 @@ $(document).ready(function() {
     $(window).on("scroll", function(e) {
         //console.log($(window).scrollTop());
         var scroll = $(window).scrollTop();
-        if (scroll > $(window).height() * 0.87) {
+        if (scroll > $(window).height() * 0.94) {
             wrap.addClass("fix-nav");
             console.log('fix-search on');
         } else {
