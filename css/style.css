@@ -69,6 +69,7 @@ header {
     background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('../img/as8nzKo.jpg');
     background-attachment: fixed;
     background-position: center;
+    background-size: cover;
 }
 
 header a {
@@ -270,7 +271,6 @@ footer span {
 .project a:hover {
     color: #333;
 }
-
 
 @media (max-width: 680px) {
     /*about*/
