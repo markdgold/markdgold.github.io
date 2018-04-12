@@ -128,7 +128,6 @@ h1 {
 footer {
     background: #130c19;
     height: 50px;
-    width:
 }
 
 footer span {
@@ -214,6 +213,7 @@ footer span {
 .skills.container {
     /*float: left;*/
     margin-left: 15%;
+    width: 85%;
 }
 
 .skills.container p {
@@ -248,6 +248,10 @@ footer span {
 .about-text {
     margin-left: 15%;
     z-index: 10000
+}
+
+.about-text h2{
+    margin-top: 60px;
 }
 
 
