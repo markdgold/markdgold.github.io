@@ -1,0 +1,33 @@
+@import "../variables";
+
+.Nav{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    text-align: center;
+    .nav-bar{
+        background: rgba(0,0,0,.8);
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        span{
+            padding-top: 15px;
+            width: 25%;
+            display: inline-block;
+            padding-bottom: 15px;
+            font-size: 20px;
+            a{
+                color: $white;
+                &:hover, &:focus{
+                    color: goldenrod;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                &.active{
+                    color: goldenrod;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,83 @@
+.About{
+    display: inline-block;
+    height: 100%;
+    background: darkgrey;
+    width: 100%;
+}
+
+.about {
+    padding: 0 !important;
+}
+
+.about-div {
+    height: 544px;
+}
+
+.skills.container {
+    margin: 0 auto;
+    width: 70%;
+    padding: 0px;
+    .row{
+        margin: 0px;
+        margin-left: 15px;
+    }
+}
+
+.skills.container p {
+    font-size: 11pt;
+}
+
+.skills.row {
+    background: lightgrey;
+    padding-bottom: 50px;
+    margin-right: 0px;
+}
+
+.skill-group {
+    margin-bottom: 40px;
+    padding-left: 0;
+}
+
+.headshot {
+    height: 170px;
+    border-radius: 50%;
+}
+
+.about-image {
+    position: absolute;
+    right: 0;
+}
+
+.iceland-image {
+    height: 544px;
+    width: 339px;
+}
+
+.about-text {
+    margin-left: 15%;
+    z-index: 2;
+}
+
+.about-text h2{
+    margin-top: 60px;
+}
+
+@media (max-width: 680px) {
+    .about-text {
+        margin-left: 0;
+        color: #fefff6;
+        background: rgba(1, 1, 1, .7);
+        height: 544px;
+    }
+    .nav-div a {
+        font-size: 1.2em;
+    }
+    .nav-div span {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .skills.container {
+        margin-left: 0;
+    }
+}
+

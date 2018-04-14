@@ -1,0 +1,13 @@
+$white: #fefff6; 
+
+html, body, #root, .App, .Main{
+    height: 100%;
+    margin: 0px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 18px;
+    background-color: $white;
+}
+
+p{
+    font-family: 'Open Sans', sans-serif;
+}
