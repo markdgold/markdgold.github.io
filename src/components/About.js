@@ -5,7 +5,6 @@ import iceland from '../assets/images/icelandcropsmall.png';
 
 class About extends Component {
   componentDidUpdate(){
-    console.log(this.props)
     this.checkIfAbout();
   }
   componentDidMount(){

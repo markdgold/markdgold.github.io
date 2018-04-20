@@ -1,14 +1,25 @@
-footer {
+@import "../variables";
+
+.Footer {
     color: white;
     background: #130c19;
     height: 50px;
-}
-
-footer span {
-    padding-top: 13px;
-    padding-left: 20px;
-}
-
-.white{
-    color: white;
+    padding: 0;
+    @media (min-width: $mobile-break) {
+        padding: 0 15%;
+    }
+    .container-fluid{
+        padding: 0;
+        div{
+            padding-top: 13px;
+            padding-left: 20px;
+            padding-right: 20px;
+            a{
+                padding: 0 5px;
+                i{
+                    color: #ffffff;
+                }
+            }
+        }
+    }
 }

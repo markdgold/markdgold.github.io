@@ -4,10 +4,19 @@ import background from '../assets/images/as8nzKo.jpg'
 
 
 class Nav extends Component {
+  componentDidMount(){
+    // this.handleScroll
+  }
+
+  handleScroll(e){
+    console.log(this.refs.NavBar.scrollTop)
+  }
+
   render() {
     return (
-      <div className="Nav">
+      <div className="Nav" id="NavBar" ref="NavBar">
         <div className="nav-bar container-fluid" style={{backgroundImage: `url("${background}")`}}>
+            <h1 className="deleteH1">Mark Goldstein</h1>
             <span><NavLink to="/about" activeClassName="active">About</NavLink></span>
             <span><NavLink to="/work" activeClassName="active">Work</NavLink></span>
             <span><NavLink to="/contact" activeClassName="active">Contact</NavLink></span>
