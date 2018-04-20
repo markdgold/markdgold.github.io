@@ -1,0 +1,34 @@
+$off-white: #fefff6;
+$gold: goldenrod;
+$dark-purple: #130C19;
+$blue: #202D50;
+$grey: #4D4D4D;
+$font-color: #333;
+
+body, html, #app, main{
+    color: $font-color;
+    background: $off-white;
+    height: 100%;
+    margin: 0px;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+h1, h2, h3{
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: lighter;
+}
+h1{
+    font-size: 36px;
+}
+h2{
+    font-size: 30px;
+}
+h3{
+    font-size: 24px;
+}
+.letter-spaced{
+    letter-spacing: .3em;
+}
