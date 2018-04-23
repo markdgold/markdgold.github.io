@@ -12,7 +12,7 @@
     </div>
     <div class="bio" id="bio">
       <div class="text-container">
-        <div class="bio-text">
+        <div class="bio-text" id="bio-text">
           <h2 class="letter-spaced">About Me</h2>
           <p>I'm currently based in Seattle, WA. Influenced by my background in astrophysics and engineering, I am constantly striving to find the elegant solution for any problem. Intrigued by functionality, efficiency and responsive design.</p>
           <hr/>
@@ -61,8 +61,24 @@ export default {
   name: 'About',
   data () {
     return {
-      msg: 'Mark Goldstein'
+      msg: 'Mark Goldstein',
+      videoPlayed: false
     }
+  },
+  methods: {
+    checkScrollPosition () {
+      if (document.body.clientHeight - 100 <= window.pageYOffset) {
+        console.log('color about')
+        if (!this.videoPlayed) {
+          document.getElementById('iceland-video').play()
+          this.videoPlayed = !this.videoPlayed
+        }
+      }
+    }
+  },
+  created () {
+    this.checkScrollPosition()
+    document.addEventListener('scroll', this.checkScrollPosition)
   }
 }
 </script>
@@ -99,6 +115,7 @@ export default {
       .bio-text{
         margin-left: 15%;
         z-index: 3;
+        text-align: justify;
         position: relative;
         // max-width: 600px;
         h2{

@@ -3,8 +3,8 @@
     <nav>
       <h1 class="letter-spaced">Mark Goldstein</h1>
       <ul>
-        <li v-if="isWork" class="nav-link"><router-link to="/about">About</router-link></li>
-        <li v-else class="nav-link"><a v-bind:class="{'router-link-active': isAbout}" href="#bio" @click="handleScroll">About</a></li>
+        <li v-if="isWork" class="nav-link"><router-link to="/about">About router</router-link></li>
+        <li v-else class="nav-link"><a href="#bio" @click="handleScroll">About scroll</a></li>
         <li class="nav-link"><router-link to="/work">Work</router-link></li>
         <li class="nav-link"><a href="#">Contact</a></li>
       </ul>
@@ -33,7 +33,7 @@ export default {
   data () {
     return {
       isWork: false,
-      isAbout: false
+      isAtAbout: false
     }
   },
   computed: {
@@ -43,22 +43,16 @@ export default {
   },
   methods: {
     handleScroll (e) {
-      e.preventDefault()
-      console.log('scroll to about')
-      document.querySelector('#bio').scrollIntoView({
-        behavior: 'smooth',
-      })
-      this.isAbout = true;
+      if (e) e.preventDefault();
+      let scrollHeight = document.body.clientHeight - 100
+      window.scrollTo({
+        top: scrollHeight,
+        behavior: 'smooth'
+      });
     },
     checkRoute () {
-      if (this.$route.path === '/work'){
-        this.isWork = true
-      } else if (this.$route.path === '/about'){
-        this.isWork = false
-        this.isAbout = true
-      } else {
-        this.isWork = false
-      }
+      if (this.$route.path === '/about') setTimeout(this.handleScroll, 1500);
+      (this.$route.path === '/work') ? this.isWork = true : this.isWork = false
     }
   },
   watch: {
@@ -69,6 +63,17 @@ export default {
   created () {
     this.checkRoute()
   }
+  // mounted () {
+  //   this.$nextTick(() => {
+  //       console.log('finsihed loading')
+  //     if (this.$route.path === '/about') {
+  //       console.log('is about');
+      
+  //     // setTimeout(this.handleScroll, 2000);
+  //     // this.handleScroll()
+  //     } 
+  //   });
+  // }
 }
 </script>
 

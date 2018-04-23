@@ -26,13 +26,6 @@ export default new Router({
     }
   ],
   scrollBehavior (to, from, savedPosition) {
-    console.log(to)
-    if (to.path === '/about') {
-      return {
-        selector : '#bio',
-        offset: {y: 100}
-      }
-    }
     return { x: 0, y: 0 }
   }
 })
