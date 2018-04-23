@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <nav>
+      <h1 class="letter-spaced">Mark Goldstein</h1>
       <ul>
-        <li class="nav-link"><router-link to="/about">About</router-link></li>
+        <li v-if="isWork" class="nav-link"><router-link to="/about">About</router-link></li>
+        <li v-else class="nav-link"><a v-bind:class="{'router-link-active': isAbout}" href="#bio" @click="handleScroll">About</a></li>
         <li class="nav-link"><router-link to="/work">Work</router-link></li>
         <li class="nav-link"><a href="#">Contact</a></li>
       </ul>
@@ -28,10 +30,44 @@
 <script>
 export default {
   name: 'App',
+  data () {
+    return {
+      isWork: false,
+      isAbout: false
+    }
+  },
   computed: {
     currentYear: function () {
       return new Date().getFullYear()
     }
+  },
+  methods: {
+    handleScroll (e) {
+      e.preventDefault()
+      console.log('scroll to about')
+      document.querySelector('#bio').scrollIntoView({
+        behavior: 'smooth',
+      })
+      this.isAbout = true;
+    },
+    checkRoute () {
+      if (this.$route.path === '/work'){
+        this.isWork = true
+      } else if (this.$route.path === '/about'){
+        this.isWork = false
+        this.isAbout = true
+      } else {
+        this.isWork = false
+      }
+    }
+  },
+  watch: {
+    '$route' () {
+      this.checkRoute()
+    }
+  },
+  created () {
+    this.checkRoute()
   }
 }
 </script>
@@ -40,7 +76,7 @@ export default {
 @import "../globals.scss";
 #app{
   nav{
-    height: 90px;
+    height: 100px;
     text-align: center;
     background-image: url('./assets/as8nzKo.jpg');
     background-attachment: fixed;
@@ -50,15 +86,21 @@ export default {
     width: 100%;
     top: 0px;
     z-index: 100;
+    h1{
+      margin-top: 27px;
+      margin-bottom: 0px;
+      color: $off-white;
+    }
     ul{
       list-style: none;
       display: flex;
       justify-content: space-around;
-      margin: 0px;
+      margin: 0px auto;
       padding: 0px;
-      padding-top: 25px;
+      max-width: 80%;
       li{
         display: inline-block;
+        padding: 0;
         a{
           color: $off-white;
           &.router-link-active{
@@ -96,15 +138,17 @@ export default {
         border-right: 1px solid grey;
       }
       &.links{
-        width: 165px;
+        width: 245px;
         margin: 15px 0px;
+        padding-left: 3px;
         line-height: 30px;
         height: 30px;
         display: flex;
-        justify-content: space-between;
+        justify-content: left;
         a{
           color: $off-white;
           height: 30px;
+          margin: 0 17px;
           i{
             font-size: 30px;
             line-height: 30px;

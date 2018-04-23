@@ -1,6 +1,6 @@
 <template>
   <div class="About">
-    <div class="hero">
+    <div class="hero" id="hero">
       <div class="title-bar">
         <h1 class="letter-spaced">
           {{msg}}
@@ -10,17 +10,17 @@
         </h2>
       </div>
     </div>
-    <div class="bio">
+    <div class="bio" id="bio">
       <div class="text-container">
         <div class="bio-text">
           <h2 class="letter-spaced">About Me</h2>
-          <p>I'm currently based in Seattle, WA. Influenced by my background in astrophysics and Engineering, I am constantly striving to find the elegant solution for any problem. Intrigued by functionality, efficiency and responsive design.</p>
+          <p>I'm currently based in Seattle, WA. Influenced by my background in astrophysics and engineering, I am constantly striving to find the elegant solution for any problem. Intrigued by functionality, efficiency and responsive design.</p>
           <hr/>
           <p>In my spare time I can be found in the outdoors, climbing rocks.</p>
         </div>
       </div>
       <div class="bio-image">
-          <video class="iceland-video" autoplay height="544">
+          <video class="iceland-video" id="iceland-video" height="544">
             <source src="../assets/climbgif (crop).mp4" type="video/mp4">
           </video>
           <!-- <img class="iceland-image" src="../assets/icelandcropsmall.png" alt=""/> -->
@@ -29,7 +29,7 @@
     <div class="endorsement">
       <div class="endoresment-text" style="display: inline-block;padding-top:30px;padding-bottom:30px;max-width:50%;"> <!--move to comp -->
         <p style="margin-top:0; color: white;">"Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff"</p>
-        <p style="margin-top:0; color: white; text-align:right;">-Kevin Goradia</p>
+        <p style="margin:0; color: white; text-align:right;">-Kevin Goradia</p>
       </div>
     </div>
     <div class="skills">
