@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <nav>
-      <h1 class="letter-spaced">Mark Goldstein</h1>
-      <ul>
-        <li v-if="isWork" class="nav-link"><router-link to="/about">About router</router-link></li>
-        <li v-else class="nav-link"><a href="#bio" @click="handleScroll">About scroll</a></li>
-        <li class="nav-link"><router-link to="/work">Work</router-link></li>
-        <li class="nav-link"><a href="#">Contact</a></li>
+    <nav v-bind:style="{'height': navHeight+'px'}">
+      <div v-bind:style="{'top': navOffset+'px'}">
+        <h1 v-if="isHome"  class="letter-spaced" v-bind:style="{'top': h1Offset+'px'}">{{header}}</h1>
+        <h1 v-else class="letter-spaced">{{header}}</h1>
+        <ul>
+          <li v-if="isHome" class="nav-link"><a v-bind:class="{'router-link-active': isAtBio}" href="#bio" @click="handleSmoothScroll">About</a></li>
+          <li v-else class="nav-link"><router-link to="/about">About</router-link></li>
+          <li class="nav-link"><router-link to="/work">Work</router-link></li>
+          <li class="nav-link"><a href="#" v-on:click="toggleModal">Contact</a></li>
       </ul>
+      </div>
     </nav>
+    <Contact ref="modal"></Contact>
     <main>
-      <router-view/>
+      <router-view @scrolling="handleScrollBehavior($event)"/>
     </main>
     <footer>
       <!-- <div class="footer"> -->
@@ -28,12 +32,19 @@
 </template>
 
 <script>
+import Contact from './components/Contact'
+
 export default {
   name: 'App',
+  components: {Contact},
   data () {
     return {
-      isWork: false,
-      isAtAbout: false
+      header: 'Mark Goldstein',
+      isHome: false,
+      isAtBio: false,
+      navOffset: 0,
+      h1Offset: 0,
+      navHeight: 100
     }
   },
   computed: {
@@ -42,38 +53,48 @@ export default {
     }
   },
   methods: {
-    handleScroll (e) {
-      if (e) e.preventDefault();
+    handleSmoothScroll (e) {
+      if (e) e.preventDefault()
       let scrollHeight = document.body.clientHeight - 100
       window.scrollTo({
         top: scrollHeight,
         behavior: 'smooth'
-      });
+      })
     },
     checkRoute () {
-      if (this.$route.path === '/about') setTimeout(this.handleScroll, 1500);
-      (this.$route.path === '/work') ? this.isWork = true : this.isWork = false
+      (this.$route.path === '/' || this.$route.path === '/about') ? this.isHome = true : this.isHome = false;
+      if (this.$route.path === '/about') setTimeout(this.handleSmoothScroll, 1000)
+    },
+    handleScrollBehavior (atAbout) {
+      let scrollHeight = document.body.clientHeight - 100 - window.pageYOffset
+      let windowHeight = document.body.clientHeight
+      if (!atAbout) {
+        this.navOffset = scrollHeight / windowHeight * (-70)
+        this.h1Offset = scrollHeight / windowHeight * (-200)
+        this.navHeight = (100 * windowHeight - 50 * scrollHeight) / windowHeight
+      }
+      this.isAtBio = atAbout
+    },
+    toggleModal (e) {
+      e.preventDefault()
+      this.$refs.modal.toggleModal()
     }
   },
   watch: {
     '$route' () {
       this.checkRoute()
+    },
+    isHome () {
+      if (!this.isHome) {
+        this.navOffset = 0
+        this.h1Offset = 0
+        this.navHeight = 100
+      }
     }
   },
   created () {
     this.checkRoute()
   }
-  // mounted () {
-  //   this.$nextTick(() => {
-  //       console.log('finsihed loading')
-  //     if (this.$route.path === '/about') {
-  //       console.log('is about');
-      
-  //     // setTimeout(this.handleScroll, 2000);
-  //     // this.handleScroll()
-  //     } 
-  //   });
-  // }
 }
 </script>
 
@@ -81,7 +102,7 @@ export default {
 @import "../globals.scss";
 #app{
   nav{
-    height: 100px;
+    // height: 50px;
     text-align: center;
     background-image: url('./assets/as8nzKo.jpg');
     background-attachment: fixed;
@@ -91,33 +112,38 @@ export default {
     width: 100%;
     top: 0px;
     z-index: 100;
-    h1{
-      margin-top: 27px;
-      margin-bottom: 0px;
-      color: $off-white;
-    }
-    ul{
-      list-style: none;
-      display: flex;
-      justify-content: space-around;
-      margin: 0px auto;
-      padding: 0px;
-      max-width: 80%;
-      li{
-        display: inline-block;
-        padding: 0;
-        a{
-          color: $off-white;
-          &.router-link-active{
-            color: $gold;
-            font-weight: bold;
+    div{
+      position: relative;
+      h1{
+        margin-top: 27px;
+        position: relative;
+        margin-bottom: 0px;
+        color: $off-white;
+        transition: visibility linear 300ms;
+      }
+      ul{
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        margin: 0px auto;
+        padding: 0px;
+        max-width: 80%;
+        li{
+          display: inline-block;
+          padding: 0;
+          a{
+            color: $off-white;
+            &.router-link-active{
+              color: $gold;
+              font-weight: bold;
+            }
           }
         }
       }
     }
   }
   main{
-    margin-top: 90px;
+    margin-top: 100px;
   }
   footer{
     z-index: -1;

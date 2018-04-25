@@ -3,7 +3,7 @@
     <div class="hero" id="hero">
       <div class="title-bar">
         <h1 class="letter-spaced">
-          {{msg}}
+          Mark Goldstein
         </h1>
         <h2>
           Web Developer
@@ -61,18 +61,19 @@ export default {
   name: 'About',
   data () {
     return {
-      msg: 'Mark Goldstein',
       videoPlayed: false
     }
   },
   methods: {
     checkScrollPosition () {
       if (document.body.clientHeight - 100 <= window.pageYOffset) {
-        console.log('color about')
+        this.$emit('scrolling', true)
         if (!this.videoPlayed) {
           document.getElementById('iceland-video').play()
           this.videoPlayed = !this.videoPlayed
         }
+      } else {
+        this.$emit('scrolling', false)
       }
     }
   },
@@ -94,7 +95,8 @@ export default {
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    margin-bottom: -90px;
+    margin-top: -50px;
+    margin-bottom: -50px;
     z-index: -10;
     .title-bar{
       position: absolute;
