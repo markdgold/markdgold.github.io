@@ -10,8 +10,8 @@
           <h3>Contact Me</h3>
           <ul>
             <li><a href="mailto:mark@markdgold.com"><i class="fa fa-envelope"></i> mark@markdgold.com</a></li>
-            <li><a href="https://www.linkedin.com/in/markdgold" target="_blank"><i class="fa fa-linkedin-square"></i> /markdgold</a></li>
-            <li><a href="https://www.github.com/markdgold" target="_blank"><i class="fa fa-github-square"></i> /markdgold</a></li>
+            <li><a href="https://www.linkedin.com/in/markdgold" target="_blank"><i class="fa fa-linkedin-square"></i> markdgold</a></li>
+            <li><a href="https://www.github.com/markdgold" target="_blank"><i class="fa fa-github-square"></i> markdgold</a></li>
           </ul> 
         </div>
       </div>
@@ -29,10 +29,8 @@
             <!-- <label>Your message</label> -->
             <textarea rows="6" name="message" placeholder="Your Message" required></textarea>
           </div>
-          <div class="submit">
+          <div class="buttons">
             <input type="submit" value="Submit">
-          </div>
-          <div>
             <button v-on:click="toggleModal">Close</button>
           </div>
         </form>
@@ -75,12 +73,14 @@ export default {
   z-index: 101;
   border: 2px solid black;
   background: $grey;
+  max-width: 546px;
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   .contact-info{
     margin-top: 20px;
     display: flex;
+    justify-content: space-around;
     .headshot{
       width: 240px;
       float: left;
@@ -91,7 +91,7 @@ export default {
     }
     .links{
       float: right;
-      width: 250px;
+      width: 245px;
       margin: 0 20px;
       padding-top: 35px;
       ul{
@@ -99,6 +99,13 @@ export default {
         padding: 0;
         li{
           a{
+            i{
+              font-size: 29px;
+              padding-right: 10px;
+              &.fa-envelope{
+                font-size: 25px;
+              }
+            }
             text-decoration: none;
             color: $off-white;
             &:hover{
@@ -129,6 +136,18 @@ export default {
           width: 100%;
           textarea{
             width: 100%;
+          }
+        }
+        &.buttons{
+          margin-bottom: 20px;
+          margin-top: 10px;
+          text-align: left;
+          width: 100%;
+          input, button{
+            background: $blue;
+            border: none;
+            color: $off-white;
+            cursor: pointer;
           }
         }
       }
