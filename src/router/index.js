@@ -1,9 +1,11 @@
 import Vue from 'vue'
+import VeeValidate from 'vee-validate'
 import Router from 'vue-router'
 import AboutComponent from '@/components/About'
 import WorkComponent from '@/components/Work'
 import NotFoundComponent from '@/components/NotFound'
 Vue.use(Router)
+Vue.use(VeeValidate)
 
 export default new Router({
   mode: 'history',

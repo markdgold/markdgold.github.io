@@ -8,7 +8,7 @@
           <li v-if="isHome" class="nav-link"><a v-bind:class="{'router-link-active': isAtBio}" href="#bio" @click="handleSmoothScroll">About</a></li>
           <li v-else class="nav-link"><router-link to="/about">About</router-link></li>
           <li class="nav-link"><router-link to="/work">Work</router-link></li>
-          <li class="nav-link"><a href="#" v-on:click="toggleModal">Contact</a></li>
+          <li class="nav-link"><a href="#" @click="toggleModal">Contact</a></li>
       </ul>
       </div>
     </nav>
@@ -22,9 +22,9 @@
           &copy;{{currentYear}} Mark Goldstein
         </div>
         <div class="links">
-          <a href="mailto:mark@markdgold.com" target="_blank"><i class="fa fa-envelope"></i></a>
-          <a href="https://linkedin.com/in/markdgold" target="_blank"><i class="fa fa-linkedin-square"></i></a>
-          <a href="https://github.com/markdgold" target="_blank"><i class="fa fa-github-square"></i></a>
+          <a href="mailto:mark@markdgold.com" target="_blank"><i class="fas fa-envelope"></i></a>
+          <a href="https://linkedin.com/in/markdgold" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/markdgold" target="_blank"><i class="fab fa-github-square"></i></a>
         </div>
       <!-- </div> -->
     </footer>
