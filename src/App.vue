@@ -1,6 +1,16 @@
 <template>
   <div id="app">
-    <nav v-bind:style="{'height': navHeight+'px'}">
+    <nav class="nav-bar" id="mobile-nav">
+      <div>
+        <ul>
+          <li v-if="isHome" class="nav-link"><a v-bind:class="{'router-link-active': isAtBio}" href="#bio" @click="handleSmoothScroll">About</a></li>
+          <li v-else class="nav-link"><router-link to="/about">About</router-link></li>
+          <li class="nav-link"><router-link to="/work">Work</router-link></li>
+          <li class="nav-link"><a href="#" @click="toggleModal">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="nav-bar" v-bind:style="{'height': navHeight+'px'}">
       <div v-bind:style="{'top': navOffset+'px'}">
         <h1 v-if="isHome"  class="letter-spaced" v-bind:style="{'top': h1Offset+'px'}">{{header}}</h1>
         <h1 v-else class="letter-spaced">{{header}}</h1>
@@ -9,7 +19,7 @@
           <li v-else class="nav-link"><router-link to="/about">About</router-link></li>
           <li class="nav-link"><router-link to="/work">Work</router-link></li>
           <li class="nav-link"><a href="#" @click="toggleModal">Contact</a></li>
-      </ul>
+        </ul>
       </div>
     </nav>
     <Contact ref="modal"></Contact>
@@ -62,6 +72,7 @@ export default {
       })
     },
     checkRoute () {
+      // eslint-disable-next-line
       (this.$route.path === '/' || this.$route.path === '/about') ? this.isHome = true : this.isHome = false;
       if (this.$route.path === '/about') setTimeout(this.handleSmoothScroll, 1000)
     },
@@ -101,7 +112,7 @@ export default {
 <style lang="scss">
 @import "../globals.scss";
 #app{
-  nav{
+  .nav-bar{
     // height: 50px;
     text-align: center;
     background-image: url('./assets/as8nzKo.jpg');
@@ -112,6 +123,16 @@ export default {
     width: 100%;
     top: 0px;
     z-index: 100;
+    @media (max-width: $mobile-break) {
+      display: none;
+    }
+    &#mobile-nav{
+      display: none;
+      height: 50px;
+      @media (max-width: $mobile-break) {
+        display: block;
+      }
+    }
     div{
       position: relative;
       h1{
@@ -128,6 +149,9 @@ export default {
         margin: 0px auto;
         padding: 0px;
         max-width: 80%;
+        @media (max-width: $mobile-break) {
+          padding-top: 13px;
+        }
         li{
           display: inline-block;
           padding: 0;

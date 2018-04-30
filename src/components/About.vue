@@ -23,31 +23,33 @@
           <video class="iceland-video" id="iceland-video" height="544">
             <source src="../assets/climbgif (crop).mp4" type="video/mp4">
           </video>
-          <!-- <img class="iceland-image" src="../assets/icelandcropsmall.png" alt=""/> -->
+          <img class="iceland-image" src="../assets/icelandcropsmall.png" alt=""/>
       </div>
     </div>
-    <div class="endorsement">
-      <div class="endoresment-text" style="display: inline-block;padding-top:30px;padding-bottom:30px;max-width:50%;"> <!--move to comp -->
-        <p style="margin-top:0; color: white;">"Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff Mark is Cool and stuff"</p>
-        <p style="margin:0; color: white; text-align:right;">-Kevin Goradia</p>
-      </div>
+    <div class="endorsement-block">
+      <carousel :perPage="1" :autoplay="true" :paginationActiveColor="'goldenrod'">
+        <slide v-for="quote in endorsementsList" :key="quote.id">
+          <Endorsement :quote="quote"></Endorsement>
+        </slide>
+      </carousel>
     </div>
     <div class="skills">
       <h2 class="letter-spaced">Skills</h2>
+      <hr style="width: 300px"/>
       <div class="skills-container">
-        <div class="design col-sm-12 col-md-6">
+        <div class="design col-md-6">
           <h3>Design</h3>
-          <img height="225" src="../assets/sketch-invision-logos.png" alt="sketch+invision">
+          <img class="sketch-logo" height="225" src="../assets/sketch-invision-logos.png" alt="sketch+invision">
         </div>
-        <div class="dev col-sm-12 col-md-6">
+        <div class="dev col-md-6">
           <h3>Development</h3>
           <div>
-            <img width="285" src="../assets/html5-css-javascript-logos.png" alt="html-css-javascript">
+            <img class="html-logo" width="285" src="../assets/html5-css-javascript-logos.png" alt="html-css-javascript">
           </div>
           <div class="frameworks">
-            <img src="../assets/angular-logo.png" alt="angular">
-            <img src="../assets/logo.png" alt="vuejs">
-            <img src="../assets/react.png" alt="react">
+            <img class="angular-logo" src="../assets/angular-logo.png" alt="angular">
+            <img class="vue-logo" src="../assets/logo.png" alt="vuejs">
+            <img class="react-logo" src="../assets/react.png" alt="react">
           </div>
         </div>
       </div>
@@ -57,11 +59,27 @@
 </template>
 
 <script>
+import Endorsement from './Endorsement'
+import { Carousel, Slide } from 'vue-carousel'
+
 export default {
   name: 'About',
+  components: { Endorsement, Carousel, Slide },
   data () {
     return {
-      videoPlayed: false
+      videoPlayed: false,
+      endorsementsList: [
+        // {
+        //   text: 'Mark is Cool and Stuff',
+        //   from: 'Kevin Goradia',
+        //   company: 'Crux Climbing Center'
+        // },
+        {
+          text: 'Mark is Cool and Stuff Mark is Cool and Stuff Mark is Cool and Stuff Mark is Cool and Stuff Mark is Cool and Stuff',
+          from: 'Kevin Goradia',
+          company: 'Crux Climbing Center'
+        }
+      ]
     }
   },
   methods: {
@@ -87,6 +105,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 @import '../../globals.scss';
+
 .About{
   height: 100%;
   .hero{
@@ -109,17 +128,30 @@ export default {
   }
   .bio{
     height: 544px;
+    @media (max-width: $tablet-break){
+        background: rgba(0,0,0,1);
+    }
     .text-container{
       width: 50%;
       background: $off-white;
       height: 544px;
       float: left;
+      z-index: 3;
+      @media (max-width: $tablet-break){
+        width: 100%;
+        position: absolute;
+        background: rgba(0,0,0,.7);
+        color: $off-white;
+      }
       .bio-text{
-        margin-left: 15%;
         z-index: 3;
+        margin-left: 15%;
         text-align: justify;
         position: relative;
         // max-width: 600px;
+        @media (max-width: $tablet-break){
+          margin: 0 20px;
+        }
         h2{
           margin-top: 80px;
         }
@@ -131,24 +163,51 @@ export default {
       height: 544px;
       background: $off-white;
       text-align: right;
+      @media(max-width: $tablet-break){
+        width:100%;
+        float:left;
+        position: absolute;
+      }
       .iceland-image{
         height: 544px;
         width: 339px;
+        display: none;
+        @media(max-width: $video-break){
+          display:inline-block;
+        }
       }
       .iceland-video{
         position: absolute;
         right: 0px;
         z-index: 0;
+        @media(max-width:$video-break){
+          display: none;
+        }
       }
     }
   }
-  .endorsement{
+  .endorsement-block{
     min-height: 170px;
     background: $blue;
     align-items: center;
     justify-content: center;
     display: flex;
     vertical-align: middle;
+    .VueCarousel-slide {
+      position: relative;
+      background: $blue;
+      min-height: 100px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
   }
   .skills{
     padding-bottom: 35px;
@@ -159,25 +218,59 @@ export default {
       margin-bottom: 18px;
       text-align: center;
     }
+    hr{
+      @media (max-width: $tablet-break){
+        margin-bottom: 40px;
+      }
+    }
     .skills-container{
       display:flex;
       margin: 0 auto;
       justify-content: space-around;
       max-width: 1100px;
       margin-bottom: 28px;
-      div{
-        text-align: center;
+      @media (max-width: $tablet-break){
+        flex-wrap: wrap;
+        margin-bottom: 0px;
+      }
+      .design, .dev{
+        @media(max-width: $tablet-break){
+          margin-bottom: 40px;
+          h3{
+            font-size: 30px;
+          }
+          .sketch-logo{
+            height: 150px;
+          }
+          .html-logo{
+            width: 180px;
+          }
+        }
       }
       .dev{
         .frameworks{
           margin-top: 19px;
           img{
             height: 95px;
-            &:nth-child(1){
-              margin-left:2px;
+            @media (max-width: $tablet-break){
+              height: 60px;
             }
-            &:nth-child(2){
+            &.angular-logo{
+              margin-left: 2px;
+              @media (max-width: $tablet-break){
+                margin-left: 5px;
+              }
+            }
+            &.vue-logo{
               margin-left: 14px;
+              @media (max-width: $tablet-break){
+                margin-left: 3px;
+              }
+            }
+            &.react-logo{
+              @media (max-width: $tablet-break){
+                margin-left: -4px;
+              }
             }
           }
         }
@@ -191,4 +284,29 @@ export default {
     }
   }
 }
+// @media (max-width: 1000px){
+//   .About{
+//     #bio{
+//       .text-container{
+
+//       }
+//     }
+//   }
+//   .iceland-video{
+//     display: none;
+//   }
+//   .iceland-image{
+//     display: inline-block !important;
+//   }
+// }
+// @media (max-width: 750px){
+//   .About{
+//     #bio{
+//       .text-container{
+//         width: 100%;
+//       }
+//     }
+//   }
+
+// }
 </style>
