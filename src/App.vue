@@ -23,10 +23,10 @@
       </div>
     </nav>
     <Contact ref="modal"></Contact>
-    <main>
+    <main :class="{'home': isHome}">
       <router-view @scrolling="handleScrollBehavior($event)"/>
     </main>
-    <footer>
+    <footer :class="{'home-footer': isHome}">
       <!-- <div class="footer"> -->
         <div class="copy">
           &copy;{{currentYear}} Mark Goldstein
@@ -168,14 +168,21 @@ export default {
   }
   main{
     margin-top: 100px;
+    z-index: 10;
+    min-height: 100%;
+    &.home{
+      height: 100%;
+    }
   }
   footer{
-    z-index: -1;
+    &.home-footer{
+      z-index: -1;
+      position: fixed;
+    }
     min-height: 170px;
     background-color: $dark-purple;
     width: 100%;
     display: flex;
-    position: fixed;
     padding-top:55px;
     padding-bottom:55px;
     bottom: 0;

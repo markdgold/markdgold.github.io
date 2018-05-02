@@ -121,7 +121,7 @@ export default {
   position: fixed;
   color: $off-white;
   z-index: 101;
-  border: 2px solid black;
+  // border: 1px solid black;
   background: $grey;
   max-width: 546px;
   left: 50%;

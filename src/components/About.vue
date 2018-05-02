@@ -69,11 +69,11 @@ export default {
     return {
       videoPlayed: false,
       endorsementsList: [
-        // {
-        //   text: 'Mark is Cool and Stuff',
-        //   from: 'Kevin Goradia',
-        //   company: 'Crux Climbing Center'
-        // },
+        {
+          text: 'Mark is Cool and Stuff',
+          from: 'Kevin Goradia',
+          company: 'Crux Climbing Center'
+        },
         {
           text: 'Mark is Cool and Stuff Mark is Cool and Stuff Mark is Cool and Stuff Mark is Cool and Stuff Mark is Cool and Stuff',
           from: 'Kevin Goradia',
