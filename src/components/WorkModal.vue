@@ -1,25 +1,28 @@
 <template>
 <div :class="{'show': isVisible}" id="project-modal-container">
-    <!-- <transition name="fade"> -->
-        <div>
-            <div class="project-modal-background" @click="toggleModal"></div>
-            <transition name="fade">
-            <div class="project-modal" v-if="isVisible">
-                <strong class="x" @click="toggleModal"><i class='fa fa-times'></i></strong>
-                <div class="project-info-container">
-                  <h1>{{info.name}}</h1>
-                  <hr/>
-                  <div class="project-description">
-                    {{info.description}}
-                  </div>
-                  <p><strong>My Role: </strong><span v-for="(role, index) in info.role" :key="role.id">{{role}}<span v-if="index+1 <info.role.length">, </span> </span></p>
-                  <p><strong>Built With: </strong><span v-for="(tech, index) in info.tech" :key="tech.id">{{tech}}<span v-if="index+1 <info.tech.length">, </span> </span></p>
-                  <button v-if="info.screenshot">View Screenshot</button>
-                </div>
-            </div>
-            </transition>
+  <div class="project-modal-background" @click="toggleModal"></div>
+  <transition name="fade">
+    <div class="transition-container">
+      <div class="project-info-container" :class="{'hidden': screenshotVis}">
+        <strong class="x" @click="toggleModal"><i class='fa fa-times'></i></strong>
+        <h1>{{info.name}}<a :href="info.link" v-if="info.link" target="_blank" class="mobile-hide"><i class="fas fa-external-link-alt"></i></a></h1>
+        <hr/>
+        <div class="project-description">
+          {{info.description}}
         </div>
-    <!-- </transition> -->
+        <p><strong>My Role: </strong><span v-for="(role, index) in info.role" :key="role.id">{{role}}<span v-if="index+1 <info.role.length">, </span> </span></p>
+        <p><strong>Built With: </strong><span v-for="(tech, index) in info.tech" :key="tech.id">{{tech}}<span v-if="index+1 <info.tech.length">, </span> </span></p>
+        <button v-if="info.screenshot" class="mobile-hide" @click="toggleScreenshot">View Screenshot</button>
+        <a v-if="info.link" :href="info.link" class="mobile-website-button" target="_blank">View Website</a>
+      </div>
+      <div v-if="info.screenshot" class="project-screenshot-container" :class="{'visible': screenshotVis}">
+        <div class="img-wrapper">
+          <img :src="info.screenshot" alt="">
+        </div>
+        <button @click="toggleScreenshot">View Info</button>
+      </div>
+    </div>
+</transition>
 </div>
 </template>
 
@@ -29,12 +32,19 @@ export default {
   props: ['info'],
   data () {
     return {
-      isVisible: false
+      isVisible: false,
+      screenshotVis: false
     }
   },
   methods: {
     toggleModal () {
       this.isVisible = !this.isVisible
+      if (this.screenshotVis) {
+        this.toggleScreenshot()
+      }
+    },
+    toggleScreenshot () {
+      this.screenshotVis = !this.screenshotVis
     }
   }
 }
@@ -67,39 +77,73 @@ export default {
   position: fixed;
   z-index: 100;
 }
-.project-modal{
-  display: inline-block;
-  position: fixed;
-  color: $off-white;
-  z-index: 101;
-  // border: 1px solid black;
-  background: $grey;
-  max-width: 546px;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  @media (max-width: $mobile-break) {
+.transition-container{
+    max-width: 546px;
     width: 100%;
-    height: 100%;
-  }
-  .x{
-    position: absolute;
-    display: none;
-    cursor: pointer;
-    padding: 10px;
-    @media screen and (max-width: $mobile-break) {
-      display: inline-block;
-      right: 10px;
-      top: 0;
+    z-index: 101;
+    display: flex;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    @media (max-width: $mobile-break) {
+      height: 100%;
+      top: 0px;
+    }
+ 
+  .project-info-container, .project-screenshot-container{
+    display: inline-block;
+    background: $grey;
+    color: $off-white;
+    width: 100%;
+    // @media (max-width: $mobile-break) {
+    //   width: 100%;
+    //   height: 100%;
+    // }
+    
+    button, .mobile-website-button{
+      background: $blue;
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      padding: 9px 18px;
+      border: none;
+      color: $off-white;
+      cursor: pointer;
     }
   }
   .project-info-container{
-    margin-top: 40px;
+    background: $grey;
     padding: 0 20px;
+    padding-top: 40px;
     text-align: left;
+    z-index: 102;
+    backface-visibility: hidden;
+    transition: transform .8s;
+    &.hidden{
+      transform: rotateY(-180deg);
+    }
+    .x{
+      position: absolute;
+      display: none;
+      cursor: pointer;
+      padding: 10px;
+      @media screen and (max-width: $mobile-break) {
+        display: inline-block;
+        right: 10px;
+        top: 0;
+      }
+    }
     h1{
       text-align: center;
       line-height: 36px;
+      a{
+        color: $gold;
+        font-size: 18px;
+        position: relative;
+        top: 6px;
+        left: 7px;
+      }
     }
     hr{
       width: 70%;
@@ -119,19 +163,45 @@ export default {
         margin-bottom: 40px;
       }
     }
-    button{
-      background: $blue;
-      text-align: center;
-      display: block;
-      margin: 0 auto;
-      margin-bottom: 20px;
-      padding: 9px 18px;
-      border: none;
-      color: $off-white;
-      cursor: pointer;
+    .mobile-website-button{
+      width: 186px;
+      display: none;
     }
     @media (max-width: $mobile-break) {
+      .mobile-website-button{
+        display: block;
+      }
+      .mobile-hide{
+        display: none;
+      }
     }
   }
+  .project-screenshot-container{
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    transition: transform .8s;
+    height: 100%;
+    position: absolute;
+    z-index: 101;
+    &.visible{
+      transform: rotateY(0deg);
+    }
+    .img-wrapper{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      overflow-y: scroll;
+      img{
+        width: 100%;
+        backface-visibility: hidden;
+      }
+    }
+    button{
+      position: relative;
+      bottom: 70px;
+      backface-visibility: hidden;
+    }
+  } 
 }
+
 </style>

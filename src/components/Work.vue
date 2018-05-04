@@ -28,11 +28,11 @@ export default {
       projects: [
         {
           name: 'Mark-Climb',
-          description: 'Bouldering profile for Mark Goldstein. Visually stimulating home page with subtle animation effects, social media pages: Instagram feed, Vimeo feed, and logbook analytics dashboard.',
+          description: 'Bouldering profile for myself. Visually stimulating home page with subtle animation effects, social media pages: Instagram feed, Vimeo feed, and logbook analytics dashboard.',
           link: 'http://mark-climb.firebaseapp.com',
           role: ['Web Design', 'Front End Developer'],
           tech: ['Angular 5', 'D3.js', 'Firebase'],
-          screenshot: '../assets/projects/mark_climb_full.png',
+          screenshot: '../static/mark_climb_full.png',
           thumbnail: '../static/mark_climb_thumb.png'
         },
         {
@@ -41,7 +41,7 @@ export default {
           link: 'http://thenew40.herokuapp.com/',
           role: ['Full Stack Developer', 'Web Design'],
           tech: ['Node.js', 'Express', 'PostgreSQL'],
-          screenshot: '../assets/projects/new40_full.png',
+          screenshot: '../static/new40_full.png',
           thumbnail: '../static/new40_thumb.png'
         },
         {

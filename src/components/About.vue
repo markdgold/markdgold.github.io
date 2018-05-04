@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="endorsement-block">
-      <carousel :perPage="1" :autoplay="true" :paginationActiveColor="'goldenrod'">
+      <carousel :perPage="1" :paginationActiveColor="'goldenrod'">
         <slide v-for="quote in endorsementsList" :key="quote.id">
           <Endorsement :quote="quote"></Endorsement>
         </slide>
@@ -70,12 +70,7 @@ export default {
       videoPlayed: false,
       endorsementsList: [
         {
-          text: 'Mark is Cool and Stuff',
-          from: 'Kevin Goradia',
-          company: 'Crux Climbing Center'
-        },
-        {
-          text: 'Mark is Cool and Stuff Mark is Cool and Stuff Mark is Cool and Stuff Mark is Cool and Stuff Mark is Cool and Stuff',
+          text: 'Mark did a great job.',
           from: 'Kevin Goradia',
           company: 'Crux Climbing Center'
         }
