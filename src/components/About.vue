@@ -70,7 +70,7 @@ export default {
       videoPlayed: false,
       endorsementsList: [
         {
-          text: 'Mark did a great job.',
+          text: 'Mark did a great job. He worked quickly and kept an open line of communication at all times.',
           from: 'Kevin Goradia',
           company: 'Crux Climbing Center'
         }
