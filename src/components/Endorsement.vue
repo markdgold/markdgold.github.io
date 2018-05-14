@@ -23,6 +23,7 @@ export default {
     padding-top: 30px;
     padding-bottom: 10px;
     max-width: 60%;
+    min-width: 300px;
     color: $off-white;
     @media (max-width: $tablet-break){
         max-width: 100%;
