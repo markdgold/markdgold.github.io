@@ -129,6 +129,7 @@ export default {
     &#mobile-nav{
       display: none;
       height: 50px;
+      background: teal;
       @media (max-width: $mobile-break) {
         display: block;
       }

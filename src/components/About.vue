@@ -53,7 +53,7 @@
           </div>
         </div>
       </div>
-      <div>Find a full list of my skills on <a href="https://linkedin.com/in/markdgold" target="_blank"><strong>linkedin</strong></a> or on my <a href="https://drive.google.com/open?id=1qCrPBaTfa9UFX4nbyTQ1ya6TZZDPFmCX" target="_blank"><strong>resume</strong></a></div>
+      <div class="full-list">Find a full list of my skills on <a href="https://linkedin.com/in/markdgold" target="_blank"><strong>linkedin</strong></a> or on my <a href="https://drive.google.com/open?id=1qCrPBaTfa9UFX4nbyTQ1ya6TZZDPFmCX" target="_blank"><strong>resume</strong></a></div>
     </div>
   </div>
 </template>
@@ -269,6 +269,11 @@ export default {
             }
           }
         }
+      }
+    }
+    .full-list{
+      @media(max-width: $tablet-break){
+        padding: 0 15px;
       }
     }
     div{
