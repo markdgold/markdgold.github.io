@@ -61,6 +61,7 @@
 <script>
 import Endorsement from './Endorsement'
 import { Carousel, Slide } from 'vue-carousel'
+import { db } from '../main'
 
 export default {
   name: 'About',
@@ -68,13 +69,12 @@ export default {
   data () {
     return {
       videoPlayed: false,
-      endorsementsList: [
-        {
-          text: 'Mark did a great job. He worked quickly and kept an open line of communication at all times.',
-          from: 'Kevin Goradia',
-          company: 'Crux Climbing Center'
-        }
-      ]
+      endorsementsList: []
+    }
+  },
+  firestore () {
+    return {
+      endorsementsList: db.collection('endorsements')
     }
   },
   methods: {

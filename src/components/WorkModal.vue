@@ -89,7 +89,6 @@ export default {
       height: 100%;
       top: 0px;
     }
- 
   .project-info-container, .project-screenshot-container{
     display: inline-block;
     background: $grey;
@@ -99,7 +98,6 @@ export default {
     //   width: 100%;
     //   height: 100%;
     // }
-    
     button, .mobile-website-button{
       background: $blue;
       text-align: center;
@@ -201,7 +199,6 @@ export default {
       bottom: 70px;
       backface-visibility: hidden;
     }
-  } 
+  }
 }
-
 </style>
