@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="bio-image">
-          <video class="iceland-video" id="iceland-video" height="544">
+          <video class="iceland-video" id="iceland-video" height="544" muted>
             <source src="../assets/climbgif (crop).mp4" type="video/mp4">
           </video>
           <img class="iceland-image" src="../assets/icelandcropsmall.png" alt=""/>
