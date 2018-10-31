@@ -14,7 +14,7 @@
       <div class="text-container">
         <div class="bio-text" id="bio-text">
           <h2 class="letter-spaced">About Me</h2>
-          <p>I'm currently based in Seattle, WA. Influenced by my background in astrophysics and engineering, I am constantly striving to find the elegant solution for any problem. Intrigued by functionality, efficiency and stimulating design.</p>
+          <p>I'm currently based in Austin, TX. Influenced by my background in astrophysics and engineering, I am constantly striving to find the elegant solution for any problem. Intrigued by functionality, efficiency and stimulating design.</p>
           <hr/>
           <p>In my spare time I can be found in the outdoors, climbing rocks.</p>
         </div>
