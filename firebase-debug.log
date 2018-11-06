@@ -1,0 +1,223 @@
+[debug] [2018-10-31T19:17:13.420Z] ----------------------------------------------------------------------
+[debug] [2018-10-31T19:17:13.424Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-10-31T19:17:13.424Z] CLI Version:   3.18.4
+[debug] [2018-10-31T19:17:13.424Z] Platform:      darwin
+[debug] [2018-10-31T19:17:13.424Z] Node Version:  v8.11.1
+[debug] [2018-10-31T19:17:13.428Z] Time:          Wed Oct 31 2018 14:17:13 GMT-0500 (CDT)
+[debug] [2018-10-31T19:17:13.428Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-31T19:17:13.443Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-31T19:17:13.443Z] > authorizing via signed-in user
+[debug] [2018-10-31T19:17:13.445Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-10-31T19:17:13.445Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/d6JRZLCJD0-sAD8biwHIt3bHTstPAApxT4j8Jq-BFJE',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Oct 31 2018 14:17:13 GMT-0500 (CDT)
+[debug] [2018-10-31T19:17:13.798Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-31T19:17:13.816Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/markdgold-224cb  
+  
+ Wed Oct 31 2018 14:17:13 GMT-0500 (CDT)
+[debug] [2018-10-31T19:17:14.247Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-31T19:17:14.248Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/markdgold-224cb/tokens  
+  
+ Wed Oct 31 2018 14:17:14 GMT-0500 (CDT)
+[debug] [2018-10-31T19:17:14.583Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'markdgold-224cb'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2018-10-31T19:17:15.585Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/markdgold-224cb/uploads/-LQAYj7FMtakFiXFBjVR?fileCount=25&message=  
+  
+ Wed Oct 31 2018 14:17:15 GMT-0500 (CDT)
+[debug] [2018-10-31T19:18:14.503Z] <<< HTTP RESPONSE 410
+[debug] [2018-10-31T19:18:14.503Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-10-31T19:18:14.505Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:47:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:186:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1163:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1085:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2018-10-31T19:20:50.977Z] ----------------------------------------------------------------------
+[debug] [2018-10-31T19:20:50.979Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-10-31T19:20:50.979Z] CLI Version:   3.18.4
+[debug] [2018-10-31T19:20:50.979Z] Platform:      darwin
+[debug] [2018-10-31T19:20:50.979Z] Node Version:  v8.11.1
+[debug] [2018-10-31T19:20:50.979Z] Time:          Wed Oct 31 2018 14:20:50 GMT-0500 (CDT)
+[debug] [2018-10-31T19:20:50.979Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-31T19:20:50.991Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-31T19:20:50.991Z] > authorizing via signed-in user
+[debug] [2018-10-31T19:20:50.992Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/markdgold-224cb  
+  
+ Wed Oct 31 2018 14:20:50 GMT-0500 (CDT)
+[debug] [2018-10-31T19:20:51.554Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-31T19:20:51.555Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/markdgold-224cb/tokens  
+  
+ Wed Oct 31 2018 14:20:51 GMT-0500 (CDT)
+[debug] [2018-10-31T19:20:51.827Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'markdgold-224cb'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2018-10-31T19:20:52.690Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/markdgold-224cb/uploads/-LQAZZ885Y_pN5QPpnYE?fileCount=25&message=  
+  
+ Wed Oct 31 2018 14:20:52 GMT-0500 (CDT)
+[debug] [2018-10-31T19:21:37.872Z] <<< HTTP RESPONSE 410
+[debug] [2018-10-31T19:21:37.872Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-10-31T19:21:37.873Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:47:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:186:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1163:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1085:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2018-10-31T19:26:26.719Z] ----------------------------------------------------------------------
+[debug] [2018-10-31T19:26:26.721Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-10-31T19:26:26.721Z] CLI Version:   3.18.4
+[debug] [2018-10-31T19:26:26.721Z] Platform:      darwin
+[debug] [2018-10-31T19:26:26.721Z] Node Version:  v8.11.1
+[debug] [2018-10-31T19:26:26.722Z] Time:          Wed Oct 31 2018 14:26:26 GMT-0500 (CDT)
+[debug] [2018-10-31T19:26:26.722Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-31T19:26:26.732Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-31T19:26:26.733Z] > authorizing via signed-in user
+[debug] [2018-10-31T19:26:26.734Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/markdgold-224cb  
+  
+ Wed Oct 31 2018 14:26:26 GMT-0500 (CDT)
+[debug] [2018-10-31T19:26:28.247Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-31T19:26:28.248Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/markdgold-224cb/tokens  
+  
+ Wed Oct 31 2018 14:26:28 GMT-0500 (CDT)
+[debug] [2018-10-31T19:26:28.667Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'markdgold-224cb'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2018-10-31T19:26:31.099Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/markdgold-224cb/uploads/-LQA_qiJWC-j3RxwGdAk?fileCount=25&message=  
+  
+ Wed Oct 31 2018 14:26:31 GMT-0500 (CDT)
+[debug] [2018-10-31T19:27:46.904Z] <<< HTTP RESPONSE 410
+[debug] [2018-10-31T19:27:46.905Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-10-31T19:27:46.906Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:47:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:186:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1163:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1085:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2018-11-06T19:53:40.557Z] ----------------------------------------------------------------------
+[debug] [2018-11-06T19:53:40.559Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-11-06T19:53:40.559Z] CLI Version:   3.18.4
+[debug] [2018-11-06T19:53:40.559Z] Platform:      darwin
+[debug] [2018-11-06T19:53:40.559Z] Node Version:  v8.11.1
+[debug] [2018-11-06T19:53:40.560Z] Time:          Tue Nov 06 2018 13:53:40 GMT-0600 (CST)
+[debug] [2018-11-06T19:53:40.560Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-06T19:53:40.574Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-06T19:53:40.575Z] > authorizing via signed-in user
+[debug] [2018-11-06T19:53:40.577Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-11-06T19:53:40.577Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/d6JRZLCJD0-sAD8biwHIt3bHTstPAApxT4j8Jq-BFJE',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Nov 06 2018 13:53:40 GMT-0600 (CST)
+[debug] [2018-11-06T19:53:41.269Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-06T19:53:41.283Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/markdgold-224cb  
+  
+ Tue Nov 06 2018 13:53:41 GMT-0600 (CST)
+[debug] [2018-11-06T19:53:41.776Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-06T19:53:41.778Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/markdgold-224cb/tokens  
+  
+ Tue Nov 06 2018 13:53:41 GMT-0600 (CST)
+[debug] [2018-11-06T19:53:42.512Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'markdgold-224cb'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2018-11-06T19:53:43.729Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/markdgold-224cb/uploads/-LQe_buQz0-G4lcrLn8E?fileCount=25&message=  
+  
+ Tue Nov 06 2018 13:53:43 GMT-0600 (CST)
+[debug] [2018-11-06T19:54:19.141Z] <<< HTTP RESPONSE 410
+[debug] [2018-11-06T19:54:19.141Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-11-06T19:54:19.143Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:47:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:186:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1163:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1085:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2018-11-06T19:56:13.897Z] ----------------------------------------------------------------------
+[debug] [2018-11-06T19:56:13.899Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-11-06T19:56:13.899Z] CLI Version:   3.18.4
+[debug] [2018-11-06T19:56:13.899Z] Platform:      darwin
+[debug] [2018-11-06T19:56:13.899Z] Node Version:  v8.11.1
+[debug] [2018-11-06T19:56:13.900Z] Time:          Tue Nov 06 2018 13:56:13 GMT-0600 (CST)
+[debug] [2018-11-06T19:56:13.900Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-06T19:56:13.909Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-06T19:56:13.909Z] > authorizing via signed-in user
+[debug] [2018-11-06T19:56:13.912Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/markdgold-224cb  
+  
+ Tue Nov 06 2018 13:56:13 GMT-0600 (CST)
+[debug] [2018-11-06T19:56:14.263Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-06T19:56:14.264Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/markdgold-224cb/tokens  
+  
+ Tue Nov 06 2018 13:56:14 GMT-0600 (CST)
+[debug] [2018-11-06T19:56:14.591Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'markdgold-224cb'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2018-11-06T19:56:15.534Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/markdgold-224cb/uploads/-LQeaByCFcRy9N1G-Wt_?fileCount=25&message=  
+  
+ Tue Nov 06 2018 13:56:15 GMT-0600 (CST)
+[debug] [2018-11-06T19:56:48.524Z] <<< HTTP RESPONSE 410
+[debug] [2018-11-06T19:56:48.524Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2018-11-06T19:56:48.525Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:13)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:47:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:186:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1163:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1085:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: An unexpected error has occurred.

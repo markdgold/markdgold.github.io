@@ -48,8 +48,8 @@
           </div>
           <div class="frameworks">
             <img class="angular-logo" src="../assets/angular-logo.png" alt="angular">
+            <img class="ionic-logo" src="../assets/ionic.png" alt="ionic">
             <img class="vue-logo" src="../assets/logo.png" alt="vuejs">
-            <img class="react-logo" src="../assets/react.png" alt="react">
           </div>
         </div>
       </div>
@@ -256,15 +256,17 @@ export default {
                 margin-left: 5px;
               }
             }
-            &.vue-logo{
-              margin-left: 14px;
+            &.ionic-logo{
+              margin-left: 7px;
+              margin-right: 3px;
               @media (max-width: $tablet-break){
-                margin-left: 3px;
+                margin-left: 5px;
+                margin-right: 0px;
               }
             }
-            &.react-logo{
+            &.vue-logo{
               @media (max-width: $tablet-break){
-                margin-left: -4px;
+                margin-left: 3px;
               }
             }
           }
